@@ -1,0 +1,151 @@
+@import url('components.css');
+
+.dashboard .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem,1fr));
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+.dashboard .box-container .box{
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--box-shadow-form);
+    background-color: var(--white);
+    border-radius: .5rem;
+}
+.dashboard .box-container .box h3{
+    font-size: 3.5rem;
+    color: var(--black);
+}
+.dashboard .box-container .box p{
+    font-size: 2rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    color: var(--black);
+}
+.btn{
+    font-size: 2rem;
+}
+.add_product form{
+    max-width: 70rem;
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: var(--box-shadow-form);
+    background-color: var(--white);
+    border-radius: .5rem;
+}
+.add_product form .flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.add_product form .flex .inputBox{
+    width: 49%;
+}
+.add_product form .box{
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.8rem;
+    color: var(--black);
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    box-shadow: var(--box-shadow-form);
+    border: var(--border);
+}
+.add_product form textarea{
+    height: 20rem;
+    resize: none;
+}
+.add_product a{
+    width: 50%;
+    margin: 0 auto ;
+}
+.show-products{
+    padding-top: 0;
+}
+.show-products .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+.show-products .box-container .box{
+    text-align: center;
+    box-shadow: var(--box-shadow-form);
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    position: relative;
+}
+.show-products .box-container .box .price{
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: var(--white);
+    background-color: var(--gold);
+    border-radius: .5rem;
+}
+.show-products .box-container .box img{
+    height: 30rem;
+    margin-bottom: 1rem;
+}
+.show-products .box-container .box .name{
+    margin: .5rem;
+    font-size: 2rem;
+    color: var(--black);
+}
+.show-products .box-container .box .category{
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+.show-products .box-container .box .description{
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+    color: var(--black);
+}
+.update-product form{
+    max-width: 50rem;
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: var(--box-shadow-form);
+    background-color: var(--white);
+    border-radius: .5rem;
+}
+.update-product form img{
+    height: auto;
+    width: 25rem;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.update-product form .box{
+    width: 100%;
+    border: var(--border);
+    box-shadow: var(--box-shadow-form);
+    background-color: var(--white);
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    padding: 1.2rem 1.4rem;
+    color: var(--black);
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px){
+    .add_product form .flex .inputBox{
+        width: 100%;
+    }
+}
+@media (max-width: 459px){
+    .show-products .box-container{
+        grid-template-columns: 1fr;
+    }
+    .update-product form img{
+        height: auto;
+        width: 100%;
+    }
+}
