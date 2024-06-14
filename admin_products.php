@@ -40,10 +40,10 @@ if (isset($_GET['delete'])) {
 </head>
 
 <body>
-    <?php include 'includes/admin_header.php'; ?>
+    <?php include 'includes/header/admin_header.php'; ?>
     <section class="add_product">
         <h1 class="title">Nieuw product toevoegen</h1>
-        <a href="add_admin_product.php" class="btn">Bewerk</a>
+        <a href="add_admin_product.php" class="btn">Toevoegen</a>
     </section>
     <section class="show-products">
         <h1 class="title">Producten toegevoegd</h1>

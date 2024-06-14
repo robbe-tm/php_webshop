@@ -58,7 +58,7 @@ if (isset($_POST['update_profile'])) {
 </head>
 
 <body>
-    <?php include 'includes/header.php'; ?>
+    <?php include 'includes/headerAccount.php'; ?>
 
     <section class="update-profile">
         <h1 class="title">Bewerk profiel</h1>

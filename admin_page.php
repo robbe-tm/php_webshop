@@ -24,7 +24,7 @@ if (!isset($admin_id)) {
 </head>
 
 <body>
-    <?php include 'includes/admin_header.php'; ?>
+    <?php include 'includes/header/admin_header.php'; ?>
     <section class="dashboard">
         <h1 class="title">Dashboard</h1>
         <div class="box-container">

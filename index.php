@@ -8,6 +8,32 @@ if (!isset($user_id)) {
     $select_profile->execute([$user_id]);
     $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
     $name = $fetch_profile["firstname"] . ' '  . $fetch_profile["lastname"];
+};
+
+if (isset($_POST['add_to_wishlist'])) {
+    $pid = $_POST['pid'];
+    $pid = filter_var($pid, FILTER_SANITIZE_STRING);
+    $p_name = $_POST['p_name'];
+    $p_name = filter_var($p_name, FILTER_SANITIZE_STRING);
+    $p_price = $_POST['p_price'];
+    $p_price = filter_var($p_price, FILTER_SANITIZE_STRING);
+    $p_image = $_POST['p_image'];
+    $p_image = filter_var($p_image, FILTER_SANITIZE_STRING);
+
+    $check_wishlist_number = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
+    $check_wishlist_number->execute([$p_name, $user_id]);
+    $check_cart_number = $conn->prepare("SELECT * FROM `cart` WHERE name = ? AND user_id = ?");
+    $check_cart_number->execute([$p_name, $user_id]);
+
+    if ($check_wishlist_number->rowCount() > 0) {
+        $message[] = 'Al toegevoegd aan de verlanglijst!';
+    } elseif ($check_cart_number->rowCount() > 0) {
+        $message[] = 'Al toegevoegd aan de winkelwagen!';
+    } else {
+        $insert_wishlist = $conn->prepare("INSERT INTO `wishlist` (user_id, pid, name, price, image) VALUEs(?,?,?,?,?)");
+        $insert_wishlist->execute([$user_id, $pid, $p_name, $p_price, $p_image]);
+        $message[] = 'Toegevoegd aan de verlanlijst!';
+    }
 }
 ?>
 
@@ -26,7 +52,7 @@ if (!isset($user_id)) {
 </head>
 
 <body>
-    <?php @include 'includes/headerIndex.php'; ?>
+    <?php @include 'includes/header/headerIndex.php'; ?>
     <div class="home-bg">
         <section class="home">
             <div class="content">
@@ -47,6 +73,7 @@ if (!isset($user_id)) {
                 while ($fetch_categorys = $show_categorys->fetch(PDO::FETCH_ASSOC)) {
             ?>
                     <div class="box">
+                        <i class="<?= $fetch_categorys['icon']; ?> catIcon"></i>
                         <h3><?= $fetch_categorys['name'] ?></h3>
                         <p><?= $fetch_categorys['description']; ?></p>
                         <a href="category.php?category=<?= $fetch_categorys['name'] ?>" class="btn"><?= $fetch_categorys['name'] ?></a>

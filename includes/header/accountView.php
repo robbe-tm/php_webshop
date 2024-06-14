@@ -17,3 +17,4 @@ if ($user_id == null) {
             <a href="logout.php" class="delete-btn">Uitloggen</a>
         </div>';
 }
+?>

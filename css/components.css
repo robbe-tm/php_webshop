@@ -190,7 +190,6 @@ section{
    color: var(--gold) !important;
 }
 .header .flex .navbar .specialColor:hover, .header .flex .navbar .navlink:hover{
-   text-decoration: underline;
    color: var(--gold);   
 }
 .header .flex .navbar .navlink{
@@ -204,17 +203,11 @@ section{
    cursor: pointer;
    margin-left: 1.5rem;
 }
-.header .flex .icons > *:hover{
+.header .flex .icons > *:hover, .header .flex .icons span:hover, .header .flex .icons a i:hover ,header .flex .icons span, .header .flex .icons .specialC, .header .flex .icons .spanSpecial{
    color: var(--gold);
 }
 .header .flex .icons span, .header .flex .icons a i{
    color: var(--white);
-}
-.header .flex .icons span:hover, .header .flex .icons a i:hover{
-   color: var(--gold);
-}
-.header .flex .logo span{
-   color: var(--gold);
 }
 .header .flex .imgLogo .imgDiv{
    width: 11rem;

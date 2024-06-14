@@ -20,13 +20,3 @@ document.querySelectorAll('.navlink').forEach
         link.setAttribute('aria-current', 'page')
     }
 })
-if(window.location.hash=="/Project_bodi/shop.php")
-    {
-        //add a # if it doesn't exist
-        newurl = document.URL+"#";
-        location = "#";
-
-        //Refresh page
-        location.reload(true);
-
-    }

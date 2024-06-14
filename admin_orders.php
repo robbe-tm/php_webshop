@@ -23,7 +23,7 @@ if (!isset($admin_id)) {
 </head>
 
 <body>
-    <?php include 'includes/admin_header.php'; ?>
+    <?php include 'includes/header/admin_header.php'; ?>
 
 
 

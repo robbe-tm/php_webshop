@@ -24,7 +24,7 @@ if (!isset($user_id)) {
 
 <body>
     <?php 
-      @include 'includes/header.php';
+      @include 'includes/header/header.php';
      ?>
 
 

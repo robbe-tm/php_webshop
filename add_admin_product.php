@@ -58,9 +58,10 @@ if (isset($_POST['add_product'])) {
 </head>
 
 <body>
-    <?php include 'includes/admin_header.php'; ?>
+    <?php include 'includes/header/admin_header.php'; ?>
     <section class="add_product">
         <form action="" method="post" enctype="multipart/form-data">
+        <div><a class="closeMark " href="admin_products.php"><i class="fa-solid fa-xmark"></i></a></div>
             <div class="flex">
                 <div class="inputBox">
                     <input type="text" name="name" class="box" required placeholder="Vul product naam in">
@@ -79,7 +80,9 @@ if (isset($_POST['add_product'])) {
                 </div>
             </div>
             <textarea name="description" cols="30" rows="10" required class="box" placeholder="Vul beschrijving product in"></textarea>
-            <input type="submit" class="btn" value="Voeg product toe" name="add_product">
+            <div class="flex-btn">
+                <input type="submit" class="btn" value="Voeg product toe" name="add_product">
+            </div>
         </form>
     </section>
 </body>

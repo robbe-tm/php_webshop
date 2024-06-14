@@ -7,12 +7,6 @@ $user_id = $_SESSION['user_id'];
 if (!isset($user_id)) {
     header('location:login.php');
 } 
-// elseif (isset($user_id)) {
-//     $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-//     $select_profile->execute([$user_id]);
-//     $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-//     $message[] = "Welkom $fetch_profile[firstname] $fetch_profile[lastname]!";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +25,7 @@ if (!isset($user_id)) {
 
 <body>
     <?php 
-      @include 'includes/header.php';
+      @include 'includes/header/header.php';
      ?>
 
 

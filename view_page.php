@@ -22,7 +22,7 @@ if (!isset($user_id)) {
 </head>
 
 <body>
-    <?php @include 'includes/header.php'; ?>
+    <?php @include 'includes/header/header.php'; ?>
     <section class="quick-view">
         <h1 class="title">Snel overzicht</h1>
         <?php

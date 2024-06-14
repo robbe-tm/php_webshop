@@ -21,9 +21,7 @@ if (!isset($user_id)) {
 </head>
 
 <body>
-    <?php 
-      @include 'includes/header.php';
-     ?>
+    <?php @include 'includes/header/headerCart.php';?>
 
 
 
