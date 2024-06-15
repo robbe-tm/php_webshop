@@ -9,4 +9,5 @@ if(!isset($user_id)){
     $count_wishlist_items = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
     $count_wishlist_items->execute([$user_id]);
     $countW = $count_wishlist_items->rowCount();
-};?>
+};
+?>
