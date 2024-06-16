@@ -60,8 +60,9 @@ if (isset($_POST['add_product'])) {
 <body>
     <?php include 'includes/header/admin_header.php'; ?>
     <section class="add_product">
+        <p class="textUTitle"><a href="admin_products.php"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
+        <h1 class="title">Product toevoegen</h1>
         <form action="" method="post" enctype="multipart/form-data">
-        <div><a class="closeMark " href="admin_products.php"><i class="fa-solid fa-xmark"></i></a></div>
             <div class="flex">
                 <div class="inputBox">
                     <input type="text" name="name" class="box" required placeholder="Vul product naam in">

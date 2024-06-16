@@ -41,7 +41,6 @@
     flex-wrap: wrap;
 }
 .add_product form .flex .inputBox{
-    margin-top: 5rem;
     width: 49%;
 }
 .add_product form .box{
@@ -62,16 +61,6 @@
 .add_product a{
     width: 50%;
     margin: 0 auto ;
-}
-.add_product .closeMark{
-    
-    top: 1rem; right: 1rem;
-    border-radius: .5rem;
-    height: 3.5rem;
-    line-height: 3.3rem;
-    width: 5rem;
-    border: var(--border);
-    color: var(--black);
 }
 .show-products{
     padding-top: 0;

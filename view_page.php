@@ -1,12 +1,10 @@
 <?php
 @include 'includes/config.php';
 @include 'includes/loggedIn.php';
-
-
 if (!isset($user_id)) {
 }
+@include 'includes/add_to_wish_cart.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +50,7 @@ if (!isset($user_id)) {
         }
         ?>
     </section>
-
+    <?php @include 'includes/footer.php'; ?>
     <script src="js/script.js"></script>
 </body>
 

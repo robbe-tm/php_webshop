@@ -58,7 +58,7 @@ if (isset($_POST['update_profile'])) {
 </head>
 
 <body>
-    <?php include 'includes/headerAccount.php'; ?>
+    <?php include 'includes/header/headerAccount.php'; ?>
 
     <section class="update-profile">
         <h1 class="title">Bewerk profiel</h1>
@@ -96,7 +96,7 @@ if (isset($_POST['update_profile'])) {
             </div>
         </form>
     </section>
-
+    <?php @include 'includes/footer.php'; ?>
     <script src="js/script.js"></script>
 </body>
 

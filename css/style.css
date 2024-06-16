@@ -89,6 +89,10 @@
     margin-bottom: 1rem;
     margin-top: 3.6rem;
 }
+.products .box-container .box .category{
+    font-size: 1.5rem;
+    color: var(--gold);
+}
 .products .box-container .box .price{
     position: absolute;
     top: 1rem; left: 1rem;
