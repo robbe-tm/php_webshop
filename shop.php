@@ -4,6 +4,8 @@
 if (!isset($user_id)) {
 } else {
 }
+$select_categorys = $conn->prepare("SELECT * FROM `categorys`");
+$select_categorys->execute();
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +26,16 @@ if (!isset($user_id)) {
     <?php include 'includes/header/header.php' ?>
     <section class="products">
         <h1 class="title">Alle producten</h1>
+        <div class="box-container">
+            <form action="" method="get">
+                <div class="filter">
+                    <h1 class="title">Filter
+                        <button type="submit" class="btn">Zoeken</button>
+                    </h1>
+                </div>
+            </form>
+
+        </div>
         <div class="box-container">
             <?php
             $select_products = $conn->prepare("SELECT * FROM `products`");
