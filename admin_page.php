@@ -1,6 +1,6 @@
 <?php
 @include 'includes/config.php';
-
+@include 'includes/html.php';
 session_start();
 
 $admin_id = $_SESSION['admin_id'];
@@ -13,14 +13,8 @@ if (!isset($admin_id)) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin pagina</title>
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/admin_styles.css">
+    <?= $head; ?>
+    <?= $admin; ?>
 </head>
 
 <body>
@@ -74,8 +68,8 @@ if (!isset($admin_id)) {
                 <h3><?= $number_of_products ?></h3>
                 <p>Producten toegevoegd</p>
                 <a href="admin_products.php" class="btn">Zie producten</a>
-             </div>
-             <div class="box">
+            </div>
+            <div class="box">
                 <?php
                 $select_users = $conn->prepare("SELECT * FROM `users` WHERE user_type = ?");
                 $select_users->execute(['user']);
@@ -84,8 +78,8 @@ if (!isset($admin_id)) {
                 <h3><?= $number_of_users ?></h3>
                 <p>Gebruikers</p>
                 <a href="admin_users.php" class="btn">Zie gebruikers</a>
-             </div>
-             <div class="box">
+            </div>
+            <div class="box">
                 <?php
                 $select_admin = $conn->prepare("SELECT * FROM `users` WHERE user_type = ?");
                 $select_admin->execute(['admin']);
@@ -94,8 +88,8 @@ if (!isset($admin_id)) {
                 <h3><?= $number_of_admin ?></h3>
                 <p>Admin gebruikers</p>
                 <a href="admin_users.php" class="btn">Zie admins</a>
-             </div>
-             <div class="box">
+            </div>
+            <div class="box">
                 <?php
                 $select_accounts = $conn->prepare("SELECT * FROM `users`");
                 $select_accounts->execute();
@@ -104,8 +98,8 @@ if (!isset($admin_id)) {
                 <h3><?= $number_of_accounts ?></h3>
                 <p>Accounts</p>
                 <a href="admin_users.php" class="btn">Zie accounts</a>
-             </div>
-             <div class="box">
+            </div>
+            <div class="box">
                 <?php
                 $select_messages = $conn->prepare("SELECT * FROM `message`");
                 $select_messages->execute();
@@ -114,7 +108,7 @@ if (!isset($admin_id)) {
                 <h3><?= $number_of_messages ?></h3>
                 <p>Berichten</p>
                 <a href="admin_contacts.php" class="btn">Zie berichten</a>
-             </div>
+            </div>
 
         </div>
     </section>

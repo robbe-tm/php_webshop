@@ -1,40 +1,39 @@
 <?php
 
-include 'includes/config.php';
+@include 'includes/config.php';
+@include 'includes/html.php';
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-   $firstname = $_POST['firstname'];
-   $firstname = filter_var($firstname, FILTER_SANITIZE_STRING);
-   $lastname = $_POST['lastname'];
-   $lastname = filter_var($lastname, FILTER_SANITIZE_STRING);
-   $email = $_POST['email'];
-   $email = filter_var($email, FILTER_SANITIZE_STRING);
-   $pass = md5($_POST['pass']);
-   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
-   $cpass = md5($_POST['cpass']);
-   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+    $firstname = $_POST['firstname'];
+    $firstname = filter_var($firstname, FILTER_SANITIZE_STRING);
+    $lastname = $_POST['lastname'];
+    $lastname = filter_var($lastname, FILTER_SANITIZE_STRING);
+    $email = $_POST['email'];
+    $email = filter_var($email, FILTER_SANITIZE_STRING);
+    $pass = md5($_POST['pass']);
+    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+    $cpass = md5($_POST['cpass']);
+    $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
-   $select = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-   $select->execute([$email]);
+    $select = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
+    $select->execute([$email]);
 
-   if($select->rowCount() > 0){
-      $message[] = 'E-mail adres bestaat al!';
-   }else{
-      if($pass != $cpass){
-         $message[] = '"Bevestig wachtwoord" komt niet overeen met "wachtwoord"!';
-      }else{
-         $insert = $conn->prepare("INSERT INTO `users`(firstname, lastname, email, password) VALUES(?,?,?,?)");
-         $insert->execute([$firstname, $lastname, $email, $pass]);
+    if ($select->rowCount() > 0) {
+        $message[] = 'E-mail adres bestaat al!';
+    } else {
+        if ($pass != $cpass) {
+            $message[] = '"Bevestig wachtwoord" komt niet overeen met "wachtwoord"!';
+        } else {
+            $insert = $conn->prepare("INSERT INTO `users`(firstname, lastname, email, password) VALUES(?,?,?,?)");
+            $insert->execute([$firstname, $lastname, $email, $pass]);
 
-         if($insert){
-               $message[] = 'Succesvol geregistreerd!';
-               header('location:login.php');
-         }
-
-      }
-   }
-
+            if ($insert) {
+                $message[] = 'Succesvol geregistreerd!';
+                header('location:login.php');
+            }
+        }
+    }
 }
 
 ?>
@@ -42,32 +41,14 @@ if(isset($_POST['submit'])){
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registreren</title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/components.css">
+    <?= $head; ?>
+    <?= $register; ?>
 </head>
 
 <body>
-
     <?php
-    if (isset($message)) {
-        foreach ($message as $message) {
-            echo '    
-            <div class="message">
-                <span>' . $message . '</span>
-                <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-            </div>
-            ';
-        }
-    }
+    @include 'includes/header/message.php';
     ?>
-
     <section class="formcontainer">
         <form action="" enctype="multipart/form-data" method="POST">
             <h3>Registreer u</h3>

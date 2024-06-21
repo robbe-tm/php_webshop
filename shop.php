@@ -1,6 +1,7 @@
 <?php
 @include 'includes/config.php';
 @include 'includes/loggedIn.php';
+@include 'includes/html.php';
 if (!isset($user_id)) {
 } else {
 }
@@ -12,14 +13,8 @@ $select_categorys->execute();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webshop</title>
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <?= $head; ?>
+    <?= $shop; ?>
 </head>
 
 <body>
@@ -27,13 +22,13 @@ $select_categorys->execute();
     <section class="products">
         <h1 class="title">Alle producten</h1>
         <div class="box-container">
-            <form action="" method="get">
+            <!-- <form action="" method="get">
                 <div class="filter">
                     <h1 class="title">Filter
                         <button type="submit" class="btn">Zoeken</button>
                     </h1>
                 </div>
-            </form>
+            </form> -->
 
         </div>
         <div class="box-container">

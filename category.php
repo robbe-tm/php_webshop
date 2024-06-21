@@ -6,27 +6,22 @@ $select_products = $conn->prepare("SELECT * FROM `products` WHERE category = ?")
 $select_products->execute([$category_name]);
 $countProducts = $select_products->rowCount();
 @include 'includes/add_to_wish_cart.php';
+@include 'includes/html.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorie</title>
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <?= $head; ?>
+    <?= $category; ?>
 </head>
 
 <body>
     <?php @include 'includes/header/header.php'; ?>
     <section class="products">
         <p class="textUTitle"><a href="index.php#categorys"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
-        <h1 class="title"><?= $category_name;?></h1>
+        <h1 class="title"><?= $category_name; ?></h1>
         <p class="textUTitle">Aantal producten(<?= $countProducts; ?>)</p>
         <div class="box-container">
             <?php
