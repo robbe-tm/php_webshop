@@ -194,6 +194,9 @@ section{
    font-size: 2.5rem;
    color: var(--white);
 }
+.header .flex a span{
+   color: var(--gold);
+}
 .header .flex .navbar .specialColor{
    margin: 0 1rem;
    font-size: 2rem;

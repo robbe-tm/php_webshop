@@ -13,7 +13,7 @@ if (!isset($admin_id)) {
 <html lang="en">
 
 <head>
-    <?= $head; ?>
+    <?= $headAdmin; ?>
     <?= $messagePage; ?>
 </head>
 

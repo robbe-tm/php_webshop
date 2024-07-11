@@ -29,7 +29,7 @@ if (isset($_GET['delete'])) {
 <html lang="en">
 
 <head>
-    <?= $head; ?>
+    <?= $headAdmin; ?>
     <?= $products; ?>
 </head>
 

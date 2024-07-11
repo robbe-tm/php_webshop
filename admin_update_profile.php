@@ -47,7 +47,7 @@ if (isset($_POST['update_profile'])) {
 <html lang="en">
 
 <head>
-    <?= $head; ?>
+    <?= $headAdmin; ?>
     <?= $editProfile; ?>
 </head>
 

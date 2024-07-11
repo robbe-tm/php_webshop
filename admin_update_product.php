@@ -53,13 +53,14 @@ if (isset($_POST['update_product'])) {
 <html lang="en">
 
 <head>
-    <?= $head; ?>
+    <?= $headAdmin; ?>
     <?= $editProduct; ?>
 </head>
 
 <body>
-    <?php include 'includes/header/admin_header.php'; ?>
+    <?php include 'includes/header/adminHeader_products_edit.php'; ?>
     <section class="update-product">
+        <p class="textUTitle"><a href="admin_products.php"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
         <h1 class="title">Bewerk product</h1>
         <?php
         $update_id = $_GET['update'];
@@ -86,7 +87,6 @@ if (isset($_POST['update_product'])) {
                     <input name="image" type="file" class="box" accept="image/jpg, image/jpeg, image/png">
                     <div class="flex-btn">
                         <input type="submit" class="btn" value="Bewerk product" name="update_product">
-                        <a href="admin_products.php" class="delete-btn">Ga terug</a>
                     </div>
                 </form>
         <?php

@@ -1,7 +1,7 @@
 <?php @include 'message.php'; ?>
 <?php @include '../html.php'; ?>
 <?= $startHeaderA; ?>
-    <?= $productsA; ?>
+    <?= $productsEditA; ?>
     <?= $ordersA; ?>
     <?= $usersA; ?>
     <?= $messageA; ?>

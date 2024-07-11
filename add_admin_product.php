@@ -47,12 +47,12 @@ if (isset($_POST['add_product'])) {
 <html lang="en">
 
 <head>
-    <?= $head; ?>
+    <?= $headAdmin; ?>
     <?= $products; ?>
 </head>
 
 <body>
-    <?php include 'includes/header/admin_header.php'; ?>
+    <?php include 'includes/header/adminHeader_products_add.php'; ?>
     <section class="add_product">
         <p class="textUTitle"><a href="admin_products.php"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
         <h1 class="title">Product toevoegen</h1>
