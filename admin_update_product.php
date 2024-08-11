@@ -87,6 +87,7 @@ if (isset($_POST['update_product'])) {
                     <input name="image" type="file" class="box" accept="image/jpg, image/jpeg, image/png">
                     <div class="flex-btn">
                         <input type="submit" class="btn" value="Bewerk product" name="update_product">
+                        <input type="text" name="">
                     </div>
                 </form>
         <?php

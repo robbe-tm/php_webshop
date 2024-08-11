@@ -134,7 +134,38 @@
     color: var(--black);
     margin: 1rem 0;
 }
-
+.placed-orders .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+.placed-orders .box-container .box{
+    box-shadow: var(--box-shadow-form);
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    position: relative;
+}
+.placed-orders .box-container .box p{
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 2rem;
+    color: var(--black);
+}
+.placed-orders .box-container .box p span, .placed-orders .box-container .box p span a{
+    color: var(--gold);
+}
+.placed-orders .box-container .box .drop-down{
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.8rem;
+    border: var(--border);
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    margin-bottom: .5rem;
+}
 @media (max-width: 768px){
     .add_product form .flex .inputBox{
         width: 100%;
@@ -147,5 +178,8 @@
     .update-product form img{
         height: auto;
         width: 100%;
+    }
+    .placed-orders .box-container{
+        grid: 1fr;
     }
 }
