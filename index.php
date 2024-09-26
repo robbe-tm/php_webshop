@@ -25,14 +25,13 @@ if (!isset($user_id)) {
     <div class="home-bg">
         <section class="home">
             <div class="content">
-                <h3>Bodi</h3>
-                <p>Bedrukkingen van kledij en diverse materialen</p>
                 <img class="bigLogoH" src="images/Logo_BODInewzwart.png" alt="logo">
             </div>
         </section>
     </div>
     <section id="categorys" class="home-category">
-        <h1 class="title">Welkom <?= $name ?>!</h1>
+        <h1 class="title">Welkom!</h1>
+        <h1 class="titleFName"><?= $name ?></h1>
         <h1 class="title">Winkelen per categorie</h1>
         <div class="box-container">
             <?php
@@ -66,16 +65,15 @@ if (!isset($user_id)) {
             ?>
                     <form action="" method="post" class="box">
                         <div class="price">&euro;<?= $fetch_products['price'] ?></div>
-                        <a href="view_page.php?pid=<?= $fetch_products['id'] ?>" class="fas fa-eye"></a>
-                        <img src="uploaded_img/<?= $fetch_products['image'] ?>" alt="">
+                        <?= $wishButton; ?>
+                        <a title="Klik op de afbeelding om meer informatie te weten van dit product" href="view_page.php?pid=<?= $fetch_products['id'] ?>"><img src="uploaded_img/<?= $fetch_products['image'] ?>" alt=""></a>
                         <div class="name"><?= $fetch_products['name'] ?></div>
                         <input type="hidden" name="pid" value="<?= $fetch_products['id'] ?>">
                         <input type="hidden" name="p_name" value="<?= $fetch_products['name'] ?>">
                         <input type="hidden" name="p_price" value="<?= $fetch_products['price'] ?>">
                         <input type="hidden" name="p_image" value="<?= $fetch_products['image'] ?>">
                         <input type="number" min="1" value="1" name="p_quantity" class="quantity">
-                        <input type="submit" value="Verlanlijst" class="btn" name="add_to_wishlist">
-                        <input type="submit" value="Winkelwagen" class="btn" name="add_to_cart">
+                        <?= $cartButton; ?>
                     </form>
             <?php
                 }

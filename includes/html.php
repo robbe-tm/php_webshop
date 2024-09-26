@@ -66,3 +66,12 @@ $usersA = '
 $messageA = '
     <a class="navlink" href="admin_contacts.php">Berichten</a>
 ';
+//Wish en cart button
+if ($user_id == null) {
+    $wishButton = '<button name="login_btn" class="fas fa-heart"></button>';
+    $cartButton = '<button name="login_btn" class="fa fa-shopping-cart"></button>';
+} else {
+    $wishButton = '<button type="submit" class="fas fa-heart" name="add_to_wishlist"></button>';
+    $cartButton = '<button type="submit" class="fa fa-shopping-cart" name="add_to_cart"></button>';
+}
+?>

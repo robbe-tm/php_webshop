@@ -42,8 +42,8 @@ if (isset($_POST['add_to_cart'])) {
     $check_cart_numbers->execute([$p_name, $user_id]);
 
     if ($check_cart_numbers->rowCount() > 0) {
-        //   $message[] = 'Al toegevoegd  aan winkelmandje!';
-        //}else{
+        $message[] = 'Al toegevoegd  aan winkelmandje!';
+    } else {
 
         $check_wishlist_numbers = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
         $check_wishlist_numbers->execute([$p_name, $user_id]);
@@ -58,4 +58,6 @@ if (isset($_POST['add_to_cart'])) {
         $message[] = 'Toegevoegd aan winkelmandje!';
     }
 };
-?>
+if (isset($_POST['login_btn'])) {
+    header('location:login.php');
+};

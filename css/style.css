@@ -29,7 +29,7 @@
 .home-category{
     padding-bottom: 0;
 }
-.home-category .box-container{
+.home-category .box-container, .products .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, 35rem);
     gap: 1.5rem;
@@ -69,13 +69,6 @@
     font-size: 4.9rem;
     color: var(--gold);
 }
-.products .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 35rem);
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: flex-start;
-}
 .products .box-container .box{
     padding: 2rem;
     text-align: center;
@@ -89,11 +82,11 @@
     margin-bottom: 1rem;
     margin-top: 3.6rem;
 }
-.products .box-container .box .category{
+.products .box-container .box .category, .quick-view .box .category{
     font-size: 1.5rem;
     color: var(--gold);
 }
-.products .box-container .box .price{
+.products .box-container .box .price, .quick-view .box .price{
     position: absolute;
     top: 1rem; left: 1rem;
     padding: 1rem;
@@ -102,29 +95,46 @@
     color: var(--white);
     font-size: 1.5rem;
 }
-.products .box-container .box .fa-eye{
+.products .box-container .box .fa-heart, .quick-view .box .fa-heart{
     position: absolute;
     top: 1rem; right: 1rem;
     border-radius: .5rem;
     height: 3.5rem;
     line-height: 3.3rem;
     width: 5rem;
-    border: var(--border);
-    color: var(--black);
+    background-color: var(--white);
+    border: var(--borderRed);
+    color: var(--red);
 }
-.products .box-container .box .fa-eye:hover{
-    background-color: var(--black);
+.products .box-container .box .fa-heart:hover, .quick-view .box .fa-heart:hover{
+    background-color: var(--red);
     color: var(--white);
 }
-.products .box-container .box .name{
+.products .box-container .box .fa-shopping-cart, .quick-view .box .fa-shopping-cart{
+    position: absolute;
+    bottom: 1rem; right: 1rem;
+    border-radius: .5rem;
+    height: 3.5rem;
+    line-height: 3.3rem;
+    width: 5rem;
+    background-color: var(--white);
+    border: var(--borderGold);
+    color: var(--gold);
+}
+.products .box-container .box .fa-shopping-cart:hover, .quick-view .box .fa-shopping-cart:hover{
+    background-color: var(--gold);
+    color: var(--white);
+}
+.products .box-container .box .name, .quick-view .box .name{
     font-size: 1.8rem;
     color: var(--black);
     padding: 1rem 0;
 }
-.products .box-container .box .quantity{
+.products .box-container .box .quantity, .quick-view .box .quantity{
     margin: .5rem 0;
     border-radius: .5rem;
     padding: 1.2rem 1.4rem;
+    margin-bottom: 4rem;
     font-size: 1.5rem;
     color: var(--black);
     background-color: var(--light-bg);
@@ -147,48 +157,36 @@
     height: 50rem;
     margin-bottom: 1rem;
 }
-.quick-view .box .price{
-    position: absolute;
-    top: 1rem; left: 1rem;
-    padding: 1rem;
-    border-radius: .5rem;
-    background-color: var(--black);
-    color: var(--white);
-    font-size: 1.5rem;
-}
-.quick-view .box .quantity{
-    margin: .5rem 0;
-    border-radius: .5rem;
-    padding: 1.2rem 1.4rem;
-    font-size: 1.5rem;
-    color: var(--black);
-    background-color: var(--light-bg);
-    border: var(--border);
-    width: 100%;
-    text-align: center;
-}
-.quick-view .box .name{
-    font-size: 1.8rem;
-    color: var(--black);
-    padding: 1rem 0;
-}
 .quick-view .box .description{
     padding: 1rem 0;
     line-height: 2;
     font-size: 1.5rem;
     color: var(--black);
 }
+@media (max-width: 991px){
+    .home-bg{
+        height: 58rem;
+    }
+ }
 @media (max-width: 768px){
     .home-bg .home{
         justify-content: center;
         text-align: center;
     }
     .home-bg .content .bigLogoH{
-        width: 40rem;
+        width: 50rem;
+    }
+    .home-bg{
+        height: 45rem;
     }
     .home-bg .home{
         display: flex;
         min-height: 50vh;
+    }
+}
+@media (max-width: 768px){
+    .home-bg .content .bigLogoH{
+        width: 40rem;
     }
 }
 @media (max-width: 450px){
@@ -213,6 +211,9 @@
     .home-bg .content .bigLogoH{
         width: 28rem;
     }
+    .home-bg{
+        height: 35rem;
+    }
     .home-bg .home{
         display: flex;
         min-height: 30vh;
@@ -221,6 +222,9 @@
 @media (max-width: 290px){
     .home-bg .content .bigLogoH{
         width: 15rem;
+    }
+    .home-bg{
+        height: 20rem;
     }
     .home-bg .home{
         display: flex;

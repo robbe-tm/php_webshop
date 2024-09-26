@@ -65,13 +65,6 @@
 .show-products{
     padding-top: 0;
 }
-.show-products .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 33rem);
-    gap: 1.5rem;
-    align-items: flex-start;
-    justify-content: center;
-}
 .show-products .box-container .box{
     text-align: center;
     box-shadow: var(--box-shadow-form);
@@ -134,14 +127,14 @@
     color: var(--black);
     margin: 1rem 0;
 }
-.placed-orders .box-container{
+.show-products .box-container, .placed-orders .box-container, .user-accounts .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, 33rem);
     gap: 1.5rem;
     align-items: flex-start;
     justify-content: center;
 }
-.placed-orders .box-container .box{
+.placed-orders .box-container .box, .user-accounts .box-container .box{
     box-shadow: var(--box-shadow-form);
     background-color: var(--white);
     border-radius: .5rem;
@@ -154,7 +147,7 @@
     font-size: 2rem;
     color: var(--black);
 }
-.placed-orders .box-container .box p span, .placed-orders .box-container .box p span a{
+.placed-orders .box-container .box p span, .placed-orders .box-container .box p span a, .user-accounts .box-container .box p span{
     color: var(--gold);
 }
 .placed-orders .box-container .box .drop-down{
@@ -166,6 +159,13 @@
     background-color: var(--light-bg);
     margin-bottom: .5rem;
 }
+.user-accounts .box-container .box p{
+    line-height: 1.5;
+    padding: .5rem 0;
+    font-size: 2rem;
+    color: var(--black);
+}
+
 @media (max-width: 768px){
     .add_product form .flex .inputBox{
         width: 100%;
