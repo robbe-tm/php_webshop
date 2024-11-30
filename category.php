@@ -1,10 +1,7 @@
 <?php
 @include 'includes/config.php';
 @include 'includes/loggedIn.php';
-$category_name = $_GET['category'];
-$select_products = $conn->prepare("SELECT * FROM `products` WHERE category = ?");
-$select_products->execute([$category_name]);
-$countProducts = $select_products->rowCount();
+@include 'includes/sql.php';
 @include 'includes/add_to_wish_cart.php';
 @include 'includes/html.php';
 ?>
@@ -21,12 +18,21 @@ $countProducts = $select_products->rowCount();
     <?php @include 'includes/header/header.php'; ?>
     <section class="products">
         <p class="textUTitle"><a href="index.php#categorys"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
-        <h1 class="title"><?= $category_name; ?></h1>
+        <?php
+        foreach ($cats as $cat) {
+            if ($category_name == $cat['id']) {
+        ?>
+                <h1 class="title"><?= $cat['name'] ?></h1>
+        <?php
+            }
+        }
+        ?>
+        <h1 class="title"></h1>
         <p class="textUTitle">Aantal producten(<?= $countProducts; ?>)</p>
         <div class="box-container">
             <?php
-            if ($select_products->rowCount() > 0) {
-                while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+            if ($show_products_by_cat->rowCount() > 0) {
+                while ($fetch_products = $show_products_by_cat->fetch(PDO::FETCH_ASSOC)) {
             ?>
                     <form action="" method="post" class="box">
                         <div class="price">&euro;<?= $fetch_products['price'] ?></div>

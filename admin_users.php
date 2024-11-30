@@ -25,9 +25,9 @@ if (!isset($admin_id)) {
         <?php 
         $select_users = $conn->prepare("SELECT * FROM `users` WHERE user_type = 'admin'");
         $select_users->execute();
-        $countA = $select_users->rowCount(); 
+        $countAdmin = $select_users->rowCount(); 
         ?>
-        <h1 class="title">Admin(<?= $countA ?>)</h1>
+        <h1 class="title">Admin(<?= $countAdmin ?>)</h1>
         <div class="box-container">
             <?php
             @include 'includes/userComponent.php';

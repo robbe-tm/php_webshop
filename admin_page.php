@@ -25,8 +25,8 @@ if (!isset($admin_id)) {
             <div class="box">
                 <?php
                 $total_pendings = 0;
-                $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-                $select_pendings->execute(['pending']);
+                $select_pendings = $conn->prepare("SELECT * FROM `orders` WHERE payment_status_id = ?");
+                $select_pendings->execute([1]);
                 while ($fetch_pending = $select_pendings->fetch(PDO::FETCH_ASSOC)) {
                     $total_pendings += $fetch_pending['total_price'];
                 };
@@ -39,8 +39,8 @@ if (!isset($admin_id)) {
             <div class="box">
                 <?php
                 $total_completed = 0;
-                $select_completed = $conn->prepare("SELECT * FROM `orders` WHERE payment_status = ?");
-                $select_completed->execute(['completed']);
+                $select_completed = $conn->prepare("SELECT * FROM `orders` WHERE payment_status_id = ?");
+                $select_completed->execute([2]);
                 while ($fetch_completed = $select_completed->fetch(PDO::FETCH_ASSOC)) {
                     $total_completed += $fetch_completed['total_price'];
                 };

@@ -1,7 +1,10 @@
 <?php
+//Includes
 @include 'includes/config.php';
 @include 'includes/loggedIn.php';
 @include 'includes/html.php';
+@include 'includes/sql.php';
+@include 'includes/add_to_wish_cart.php';
 if (!isset($user_id)) {
     $name = '';
 } else {
@@ -10,7 +13,7 @@ if (!isset($user_id)) {
     $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
     $name = $fetch_profile["firstname"] . ' '  . $fetch_profile["lastname"];
 };
-@include 'includes/add_to_wish_cart.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +38,6 @@ if (!isset($user_id)) {
         <h1 class="title">Winkelen per categorie</h1>
         <div class="box-container">
             <?php
-            $show_categorys = $conn->prepare("SELECT * FROM `categorys`");
-            $show_categorys->execute();
             if ($show_categorys->rowCount() > 0) {
                 while ($fetch_categorys = $show_categorys->fetch(PDO::FETCH_ASSOC)) {
             ?>
@@ -44,7 +45,7 @@ if (!isset($user_id)) {
                         <i class="<?= $fetch_categorys['icon']; ?> catIcon"></i>
                         <h3><?= $fetch_categorys['name'] ?></h3>
                         <p><?= $fetch_categorys['description']; ?></p>
-                        <a href="category.php?category=<?= $fetch_categorys['name'] ?>" class="btn"><?= $fetch_categorys['name'] ?></a>
+                        <a href="category.php?category=<?= $fetch_categorys['id'] ?>" class="btn"><?= $fetch_categorys['name'] ?></a>
                     </div>
             <?php
                 }
@@ -58,10 +59,8 @@ if (!isset($user_id)) {
         <h1 class="title">Nieuwste producten</h1>
         <div class="box-container">
             <?php
-            $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 6");
-            $select_products->execute();
-            if ($select_products->rowCount() > 0) {
-                while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+            if ($show_products_latest->rowCount() > 0) {
+                while ($fetch_products = $show_products_latest->fetch(PDO::FETCH_ASSOC)) {
             ?>
                     <form action="" method="post" class="box">
                         <div class="price">&euro;<?= $fetch_products['price'] ?></div>
@@ -78,7 +77,7 @@ if (!isset($user_id)) {
             <?php
                 }
             } else {
-                echo '<p class="empty">Geen producten gevonden!</p>';
+                echo $no_products;
             }
             ?>
         </div>

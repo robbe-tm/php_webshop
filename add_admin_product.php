@@ -54,7 +54,7 @@ if (isset($_POST['add_product'])) {
 <body>
     <?php include 'includes/header/adminHeader_products_add.php'; ?>
     <section class="add_product">
-        <p class="textUTitle"><a href="admin_products.php"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
+        <?= $goback ?>
         <h1 class="title">Product toevoegen</h1>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="flex">

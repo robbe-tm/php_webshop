@@ -17,9 +17,6 @@ if (isset($_POST['add_to_wishlist'])) {
     if ($check_wishlist_number->rowCount() > 0) {
         $message[] = 'Al toegevoegd aan de verlanglijst!';
     }
-    // } elseif ($check_cart_number->rowCount() > 0) {
-    //     $message[] = 'Al toegevoegd aan de winkelwagen!';
-    // } 
     else {
         $insert_wishlist = $conn->prepare("INSERT INTO `wishlist` (user_id, pid, name, price, image) VALUES(?,?,?,?,?)");
         $insert_wishlist->execute([$user_id, $pid, $p_name, $p_price, $p_image]);
@@ -60,4 +57,7 @@ if (isset($_POST['add_to_cart'])) {
 };
 if (isset($_POST['login_btn'])) {
     header('location:login.php');
+};
+if (isset($_POST['undo_button'])) {
+    header('location:admin_products.php');
 };

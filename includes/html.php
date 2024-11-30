@@ -52,10 +52,10 @@ $productsA = '
     <a class="navlink" href="admin_products.php">Producten</a>
 ';
 $productsAddA = '
-    <a class="specialColor" href="add_admin_product.php">Producten - Toevoegen</a>
+    <a class="specialColor">Producten - Toevoegen</a>
 ';
 $productsEditA = '
-    <a class="specialColor" href="add_admin_product.php">Producten - Bewerken</a>
+    <a class="specialColor"> Producten - Bewerken</a>
 ';
 $ordersA = '
     <a class="navlink" href="admin_orders.php">Bestellingen</a>
@@ -66,12 +66,24 @@ $usersA = '
 $messageA = '
     <a class="navlink" href="admin_contacts.php">Berichten</a>
 ';
+$goback = '
+    <p class="textUTitle"><a href="admin_products.php"><i class="fa-solid fa-arrow-left"></i> Ga terug</a></p>
+';
+$no_products = '
+    <p class="empty">Geen producten gevonden!</p>
+';
 //Wish en cart button
 if ($user_id == null) {
-    $wishButton = '<button name="login_btn" class="fas fa-heart"></button>';
-    $cartButton = '<button name="login_btn" class="fa fa-shopping-cart"></button>';
+    $wishButton = '<button name="login_btn" class="redIconButton fas fa-heart"></button>';
+    $cartButton = '<button name="login_btn" class="goldIconButton fa fa-shopping-cart"></button>';
 } else {
-    $wishButton = '<button type="submit" class="fas fa-heart" name="add_to_wishlist"></button>';
-    $cartButton = '<button type="submit" class="fa fa-shopping-cart" name="add_to_cart"></button>';
+    $wishButton = '<button type="submit" class="redIconButton fas fa-heart" name="add_to_wishlist"></button>';
+    $cartButton = '<button type="submit" class="goldIconButton fa fa-shopping-cart" name="add_to_cart"></button>';
 }
+//Edit and go back button product
+$editButton = '<button type="submit" class="goldIconButton fas fa-edit" name="update_product"></button>';
+$undoButton = '<button name="undo_button" class="redIconButton fas fa-undo"></button>';
+//Standard edit and delete button
+$edit_button = '<button><i class="goldIconButton fas fa-edit"></i></button>';
+$trash_button = '<button><i class="redIconButton fas fa-trash-alt"></i></button>';
 ?>
